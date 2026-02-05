@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   is_valid.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/05 19:18:29 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/03 12:25:09 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/03 14:21:54 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
 
-int	main(int argC, char **argV)
+int is_valid(char *str)
 {
-	int		i;
-	int		check;
-	t_stack	a;
+	int i;
 
-	if (arC < 2)
+	i = 0;
+	if (!(str[i] >= '1' && str[i] <= '9' || str[i] == '-'))
 		return (0);
-	a = calloc(1, sizeof(t_stack));
-	a = assemble_stack(argV, a);
-	check = ft_indexing(a);
-	if (!a || check)
+	i++;
+	while (str[i] != 0 && str[i] <= 10)
 	{
-		write(1, "Error\n", 6);
-		return (1);
+		if (!(str[i] >= '1' && str[i] <= '9')
+			return (0);
+		i++;
 	}
-	if (is_sorted(a) == 1)
+	if (str[i] != 0)
 		return (0);
-	
+	return (1);
 }

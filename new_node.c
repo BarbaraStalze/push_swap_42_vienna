@@ -1,33 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   new_node.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/05 19:18:29 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/02 10:03:28 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/05 15:19:11 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
-int	main(int argC, char **argV)
+t_list	*new_node(int data)
 {
-	int		i;
-	int		check;
-	t_stack	a;
+	t_list	*node;
 
-	if (arC < 2)
+	node = calloc(1, sizeof(t_list));
+	if (!node)
 		return (0);
-	a = calloc(1, sizeof(t_stack));
-	a = assemble_stack(argV, a);
-	check = ft_indexing(a);
-	if (!a || check)
-	{
-		write(1, "Error\n", 6);
-		return (1);
-	}
-	if (is_sorted(a) == 1)
-		return (0);
-	
+	node->data = data;
+	return (node);
 }

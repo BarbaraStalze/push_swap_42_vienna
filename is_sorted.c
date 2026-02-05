@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   is_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/05 19:18:29 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/05 19:06:30 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <push_swap.h>
+#include "push_swap.h"
 
-int	main(int argC, char **argV)
+int is_sorted(t_stack stack);
 {
-	int		i;
-	int		check;
-	t_stack	a;
+	t_list	*node;
 
-	if (arC < 2)
-		return (0);
-	a = calloc(1, sizeof(t_stack));
-	a = assemble_stack(argV, a);
-	check = ft_indexing(a);
-	if (!a || check)
+	node = stack->head;
+	while (node->next)
 	{
-		write(1, "Error\n", 6);
-		return (1);
+		if (node < node->next)
+			return (1);
+		node = node->next;
 	}
-	if (is_sorted(a) == 1)
-		return (0);
-	
+	return (0);
 }
