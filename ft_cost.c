@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_cost.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:03:49 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/09 15:25:42 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/12 19:18:12 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack)
+void	ft_cost(t_stack *stack)
 {
+	int		i;
 	t_list	*node;
 
+	ft_lstsize(stack);
 	node = stack->head;
-	while (node->next)
+	i = 0;
+	while (i <= stack->size / 2)
 	{
-		if (node < node->next)
-			return (1);
+		node->ttc = i;
+		i++;
 		node = node->next;
 	}
-	return (0);
+	if (stack->size % 2 == 0)
+		i = ((stack->size / 2) - 1) * (-1);
+	else
+		i = (stack->size / 2) * (-1);
+	while (i)
+	{
+		node->ttc = i;
+		i++;
+		node = node->next;
+	}
 }

@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_rotate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:03:49 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/09 15:07:38 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/12 20:42:31 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack)
+void	ft_ra(t_stack *a)
 {
-	t_list	*node;
+	top_down(a);
+	write(1, "ra", 2);
+}
 
-	node = stack->head;
-	while (node->next)
-	{
-		if (node < node->next)
-			return (1);
-		node = node->next;
-	}
-	return (0);
+void	ft_rb(t_stack *b)
+{
+	top_down(b);
+	write(1, "rb", 2);
+}
+
+void	ft_rr(t_stack *a, t_stack *b)
+{
+	top_down(a);
+	top_down(b);
+	write(1, "rr", 2);
 }

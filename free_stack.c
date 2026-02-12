@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   free_stack.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:03:49 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/12 16:40:16 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/12 20:37:05 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	t_list	*node;
+	t_list	*temp;
 
+	if (!stack->head)
+		return ;
 	node = stack->head;
-	while (node->next)
+	while (node)
 	{
-		if (node < node->next)
-			return (1);
-		node = node->next;
+		temp = node->next;
+		free(node);
+		node = temp;
 	}
-	return (0);
+	stack->head = NULL;
 }

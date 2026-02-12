@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:06:21 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/05 19:03:53 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/12 19:19:26 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,7 +26,7 @@ void	ft_lstsize(t_stack *a)
 	a->size = counter;
 }
 
-int	compare(t_list *current, t_list *node)
+static int	compare(t_list *current, t_list *node)
 {
 	if (current->data < node->data)
 		current->index--;

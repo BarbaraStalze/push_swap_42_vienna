@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   is_sorted.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:03:49 by bastalze         ###   ########.fr       */
+/*   Created: 2026/02/12 20:58:29 by bastalze          #+#    #+#             */
+/*   Updated: 2026/02/12 21:00:10 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
-int	is_sorted(t_stack *stack)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_list	*node;
+	char			*subp;
+	unsigned int	slen;
+	int				i;
 
-	node = stack->head;
-	while (node->next)
+	slen = ft_strlen(s);
+	if (start > slen)
+		return (ft_strdup(""));
+	if (len > slen - start)
+		len = slen - start;
+	subp = malloc(len + 1);
+	if (!subp)
+		return (0);
+	i = 0;
+	while (s[start] != 0 && len > 0)
 	{
-		if (node < node->next)
-			return (1);
-		node = node->next;
+		subp[i] = s[start];
+		i++;
+		start++;
+		len--;
 	}
-	return (0);
+	subp[i] = 0;
+	return (subp);
 }
