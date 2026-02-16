@@ -6,15 +6,13 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 10:24:12 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:23:10 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/13 17:28:26 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
 
 static void	add_to_stack(t_stack *stack, t_list *new)
 {
-	if (!stack || !new)
-		return ;
 	if (stack->head)
 	{
 		stack->tail->next = new;
@@ -45,13 +43,19 @@ static int	create_stack(char **argV, int i, t_stack *a)
 
 	while (argV[i])
 	{
-		if (is_valid(argV[i]))
+		if (!(is_valid(argV[i])))
 			return (0);
 		nb = ft_atoi(argV[i]);
 		if (nb > INT_MAX || nb < INT_MIN)
 			return (0);
 		new = new_node(nb);
+		if (!new)
+		{
+			free_stack(a);
+			return (0);
+		}
 		add_to_stack(a, new);
+		i++;
 	}
 	return (1);
 }

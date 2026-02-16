@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 10:39:08 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:03:49 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/16 15:31:29 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -18,7 +18,7 @@ int	is_sorted(t_stack *stack)
 	node = stack->head;
 	while (node->next)
 	{
-		if (node < node->next)
+		if (node > node->next)
 			return (1);
 		node = node->next;
 	}

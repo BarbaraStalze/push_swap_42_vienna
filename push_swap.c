@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:52:54 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:03:47 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -52,7 +52,10 @@ static void	ft_sorting(t_stack *a, t_stack *b)
 	static t_list	*smallest;
 
 	if (a->size <= 3)
+	{
 		sort_few(a);
+		return ;
+	}
 	first_push(a, b);
 	sort_few(a);
 	smallest = a->head;
@@ -71,21 +74,21 @@ int	main(int argC, char **argV)
 {
 	int				check1;
 	int				check2;
-	static t_stack	*a;
-	static t_stack	*b;
+	static t_stack	a;
+	static t_stack	b;
 
 	if (argC < 2)
 		return (0);
-	check1 = assemble_stack(argV, a);
-	check2 = ft_indexing(a);
+	check1 = assemble_stack(argV, &a);
+	check2 = ft_indexing(&a);
 	if (!check1 || check2)
 	{
 		write(1, "Error\n", 6);
 		return (1);
 	}
-	if (is_sorted(a) == 1)
+	if (is_sorted(&a) == 1)
 		return (0);
-	ft_sorting(a, b);
-	ft_lstsize(a);
-	free_stack(a);
+	ft_sorting(&a, &b);
+	ft_lstsize(&a);
+	free_stack(&a);
 }

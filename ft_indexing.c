@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:06:21 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 19:19:26 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:40:07 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -43,6 +43,7 @@ int	ft_indexing(t_stack *a)
 
 	ft_lstsize(a);
 	current = a->head;
+	check = 0;
 	while (current)
 	{
 		node = a->head;
@@ -50,12 +51,16 @@ int	ft_indexing(t_stack *a)
 		while (node && check != 1)
 		{
 			if (node != current)
+			{
 				check = compare(current, node);
+				if (check == 1)
+					return (check);
+			}
 			node = node->next;
 		}
 		current = current->next;
 	}
-	return (check);
+	return (0);
 }
 
 /*

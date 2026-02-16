@@ -2,7 +2,7 @@
 
 NAME = push_swap
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 OBJFILES = $(SOURCES:.c=.o)
 SOURCES = assemble_stack.c \
 	find_cheapest.c \
@@ -23,11 +23,13 @@ SOURCES = assemble_stack.c \
 	operations.c \
 	push_swap.c \
 	sort_few.c \
+	ft_substr.c \
 
 all : $(NAME)
 
 $(NAME) : $(OBJFILES)
-	rcs $(@) $(?)
+	$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
+#	ar rcs $(@) $(?)
 
 %.o : %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
