@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:06:21 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/16 14:40:07 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:55:01 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -62,7 +62,6 @@ int	ft_indexing(t_stack *a)
 	}
 	return (0);
 }
-
 /*
 t_list	*new_node(int data)
 {
@@ -96,13 +95,13 @@ void	add_to_stack(t_stack *stack, t_list *new)
 
 int main()
 {
-	int		test[] = {56, 345, -1, 0, 1, 34444, 4545};
+	int		test[] = {8, 3, 2, 9};
 	t_list	*node;
 	t_stack	*stack;
 	int 	i = 0;
 
 	stack = calloc(1, sizeof(t_stack));
-	while (i != 7)
+	while (i != 4)
 	{
 		node = new_node(test[i]);
 		add_to_stack(stack, node);

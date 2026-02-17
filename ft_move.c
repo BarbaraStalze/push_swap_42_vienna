@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 12:50:38 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 19:13:32 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/17 14:20:20 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -18,7 +18,7 @@ void	push(t_stack *one, t_stack *two)
 	mover = one->head;
 	one->head = one->head->next;
 	mover->next = two->head;
-	if (!one->head->next)
+	if (!one->head)
 	{
 		two->head->prev = mover;
 		one->tail = NULL;
