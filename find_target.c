@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:31:27 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:44:18 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:08:23 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -47,23 +47,28 @@ static void	total_cost(t_list *node_a, t_list *node_b)
 	node_b->total = ttc_a + ttc_b;
 }
 
-void	find_target(t_stack *a, t_stack *b)
+void	find_target(t_stack *a, t_list *node_b)
 {
 	t_list	*node_a;
-	t_list	*node_b;
 	t_list	*smallest;
 
 	smallest = find_smallest(a);
-	node_b = b->head;
 	while (node_b)
 	{
 		node_a = smallest->next;
 		while (node_a != smallest)
 		{
+			if (smallest->prev->index < node_b->index)
+			{
+				total_cost(smallest, node_b);
+				break ;
+			}
 			if (node_a->index > node_b->index)
+			{
 				total_cost(node_a, node_b);
-			else
-				node_a = node_a->next;
+				break ;
+			}
+			node_a = node_a->next;
 			if (node_a == NULL)
 				node_a = a->head;
 		}

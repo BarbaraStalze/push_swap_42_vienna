@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:38:28 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/12 21:50:26 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:09:39 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -64,7 +64,7 @@ void    ft_cost(t_stack *stack);
 void    sort_few(t_stack *stack);
 void    first_push(t_stack *a, t_stack *b);
 t_list  *find_cheapest(t_stack *b);
-void    find_target(t_stack *a, t_stack *b);
+void    find_target(t_stack *a, t_list *node_b);
 void    free_stack(t_stack *stack);
 int 	ft_indexing(t_stack *a);
 void    ft_lstsize(t_stack *a);

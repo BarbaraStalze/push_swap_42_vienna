@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/16 18:03:47 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/17 12:08:31 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -41,8 +41,10 @@ static void	to_top_a(t_stack *a, t_list *cheapest)
 
 static void	make_move(t_stack *a, t_stack *b, t_list *cheapest)
 {
-	to_top_b(b, cheapest);
-	to_top_a(a, cheapest);
+	if (b->head != cheapest)
+		to_top_b(b, cheapest);
+	if (cheapest->target != a->head)
+		to_top_a(a, cheapest);
 	ft_pa(a, b);
 }
 
@@ -63,7 +65,7 @@ static void	ft_sorting(t_stack *a, t_stack *b)
 	{
 		ft_cost(a);
 		ft_cost(b);
-		find_target(a, b);
+		find_target(a, b->head);
 		cheapest = find_cheapest(b);
 		make_move(a, b, cheapest);
 	}
