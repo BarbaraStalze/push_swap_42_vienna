@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/10 17:31:27 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/17 12:42:33 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/18 15:29:34 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -56,7 +56,7 @@ void	find_target(t_stack *a, t_list *node_b)
 	while (node_b)
 	{
 		node_a = smallest->next;
-		node_b->total = 0;
+		node_b->total = INT_MAX;
 		while (node_a != smallest)
 		{
 			if (node_a->index > node_b->index)
@@ -68,7 +68,7 @@ void	find_target(t_stack *a, t_list *node_b)
 			if (node_a == NULL)
 				node_a = a->head;
 		}
-		if (!node_b->total)
+		if (node_b->total == INT_MAX)
 			total_cost(smallest, node_b);
 		node_b = node_b->next;
 	}

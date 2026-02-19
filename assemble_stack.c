@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 10:24:12 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/13 17:28:26 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/18 20:17:18 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -46,7 +46,7 @@ static int	create_stack(char **argV, int i, t_stack *a)
 		if (!(is_valid(argV[i])))
 			return (0);
 		nb = ft_atoi(argV[i]);
-		if (nb > INT_MAX || nb < INT_MIN)
+		if (nb == 0)
 			return (0);
 		new = new_node(nb);
 		if (!new)

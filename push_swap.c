@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/21 16:39:11 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/17 12:08:31 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/19 13:52:14 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -25,17 +25,17 @@ static void	to_top_b(t_stack *b, t_list *cheapest)
 	}
 }
 
-static void	to_top_a(t_stack *a, t_list *cheapest)
+static void	to_top_a(t_stack *a, t_list *smallest)
 {
-	while (cheapest->target->ttc > 0)
+	while (smallest->ttc > 0)
 	{
 		ft_ra(a);
-		cheapest->target->ttc--;
+		smallest->ttc--;
 	}
-	while (cheapest->target->ttc < 0)
+	while (smallest->ttc < 0)
 	{
 		ft_rra(a);
-		cheapest->target->ttc++;
+		smallest->ttc++;
 	}
 }
 
@@ -44,7 +44,7 @@ static void	make_move(t_stack *a, t_stack *b, t_list *cheapest)
 	if (b->head != cheapest)
 		to_top_b(b, cheapest);
 	if (cheapest->target != a->head)
-		to_top_a(a, cheapest);
+		to_top_a(a, cheapest->target);
 	ft_pa(a, b);
 }
 
@@ -69,6 +69,7 @@ static void	ft_sorting(t_stack *a, t_stack *b)
 		cheapest = find_cheapest(b);
 		make_move(a, b, cheapest);
 	}
+	ft_cost(a);
 	to_top_a(a, smallest);
 }
 
@@ -85,12 +86,11 @@ int	main(int argC, char **argV)
 	check2 = ft_indexing(&a);
 	if (!check1 || check2)
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		return (1);
 	}
-	if (is_sorted(&a) == 1)
+	if (is_sorted(&a) == 0)
 		return (0);
 	ft_sorting(&a, &b);
-	ft_lstsize(&a);
 	free_stack(&a);
 }
