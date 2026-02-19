@@ -34,7 +34,7 @@ In case of something going wrong (mallocation fail) the program displays the err
 - https://www.pythonmorsels.com/standard-error/
 
 ### Peers
-Kian as always answered all my questions, gave me advice on the startegy to tackle this project and helped me with debugging. Nils started at the same time so he helped me keep a good pace and was a great person to bounce of iideas of or share encountered pitfalls and tricks we found out on the way. Answers were also given by Anton.
+Kian as always answered all my questions, gave me advice on the startegy to tackle this project and helped me with debugging. Nils started at the same time so he helped me keep a good pace and was a great person to bounce of iideas of or share encountered pitfalls and tricks we found out on the way. Answers were also given by Anton and Monika.
 
 ### AI Usage Statement
 I used Deepseek to answer questions I couldn'd answer by using a search engine.
