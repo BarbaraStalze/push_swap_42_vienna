@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 10:24:12 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/18 20:17:18 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/23 16:48:46 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -26,28 +26,31 @@ static void	add_to_stack(t_stack *stack, t_list *new)
 	}
 }
 
-static int	array_size(char **argV)
+static int	array_size(char **argv)
 {
 	int	len;
 
 	len = 0;
-	while (argV[len])
+	while (argv[len])
 		len++;
 	return (len);
 }
 
-static int	create_stack(char **argV, int i, t_stack *a)
+static int	create_stack(char **argv, int i, t_stack *a)
 {
 	int		nb;
 	t_list	*new;
 
-	while (argV[i])
+	while (argv[i])
 	{
-		if (!(is_valid(argV[i])))
+		if (!(is_valid(argv[i])))
 			return (0);
-		nb = ft_atoi(argV[i]);
+		nb = ft_atoi(argv[i]);
 		if (nb == 0)
+		{
+			free_stack(a);
 			return (0);
+		}
 		new = new_node(nb);
 		if (!new)
 		{
@@ -60,27 +63,26 @@ static int	create_stack(char **argV, int i, t_stack *a)
 	return (1);
 }
 
-int	assemble_stack(char **argV, t_stack *a)
+int	assemble_stack(char **argv, t_stack *a)
 {
 	int		i;
 	int		y_n_split;
 
 	y_n_split = 0;
-	if (argV[2] == 0)
+	if (argv[2] == 0)
 	{
-		argV = ft_split(argV[1], ' ');
+		argv = ft_split(argv[1], ' ');
+		if (!argv)
+			return (0);
+		if (argv[0] == 0)
+			return (ft_free(argv, array_size(argv) - 1), 0);
 		y_n_split = 1;
 	}
 	i = 0;
 	if (y_n_split == 0)
 		i++;
-	i = create_stack(argV, i, a);
-	if (i == 0)
-		return (0);
+	i = create_stack(argv, i, a);
 	if (y_n_split == 1)
-	{
-		i = array_size(argV);
-		ft_free(argV, i - 1);
-	}
-	return (1);
+		ft_free(argv, array_size(argv) - 1);
+	return (i);
 }
