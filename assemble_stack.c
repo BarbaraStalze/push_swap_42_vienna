@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/02 10:24:12 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/23 16:48:46 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:12:06 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -38,7 +38,7 @@ static int	array_size(char **argv)
 
 static int	create_stack(char **argv, int i, t_stack *a)
 {
-	int		nb;
+	long	nb;
 	t_list	*new;
 
 	while (argv[i])
@@ -46,12 +46,12 @@ static int	create_stack(char **argv, int i, t_stack *a)
 		if (!(is_valid(argv[i])))
 			return (0);
 		nb = ft_atoi(argv[i]);
-		if (nb == 0)
+		if (nb > INT_MAX || nb < INT_MIN)
 		{
 			free_stack(a);
 			return (0);
 		}
-		new = new_node(nb);
+		new = new_node((int)nb);
 		if (!new)
 		{
 			free_stack(a);

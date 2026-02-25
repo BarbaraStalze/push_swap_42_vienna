@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 12:25:09 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/13 16:46:21 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:25:26 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@ int	is_valid(char *str)
 	int	i;
 
 	i = 0;
-	if (!((str[i] >= '1' && str[i] <= '9') || str[i] == '-'))
+	if (!((str[i] >= '0' && str[i] <= '9') || str[i] == '-') || (str[0] == '0' && str[1] != 0))
 		return (0);
 	i++;
 	while (str[i] != 0 && str[i] >= '0' && str[i] <= '9')
 		i++;
-	if (str[i] != 0)
+	if (str[i] != 0 || i > 11)
 		return (0);
 	return (1);
 }

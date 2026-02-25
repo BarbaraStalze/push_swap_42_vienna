@@ -22,7 +22,9 @@ I implemented the turk algorithm:
 Valid inputs are:
 - "integers" as arguments, eg 3 56 -209 -1 0
 - one argument with "integers" sepateted by spaces, eg "3 56 -209 -1 0"
-In case of something going wrong (mallocation fail) the program displays the error message "Error" followed by a new line on the standard error.
+- use max. 500 unique "integers" - more at your own risk, duplicates will create an error
+- "-0" gets treated as "0"
+In case of something going wrong (mallocation fail or wrong input etc) the program displays the error message "Error" followed by a new line on the standard error.
 
 ## Resources
 

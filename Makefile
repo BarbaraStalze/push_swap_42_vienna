@@ -29,7 +29,6 @@ all : $(NAME)
 
 $(NAME) : $(OBJFILES)
 	$(CC) $(CFLAGS) $(SOURCES) -o $(NAME)
-#	ar rcs $(@) $(?)
 
 %.o : %.c push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -6,7 +6,7 @@
 /*   By: bastalze <bastalze@student.42vienna.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 11:38:28 by bastalze          #+#    #+#             */
-/*   Updated: 2026/02/23 11:02:54 by bastalze         ###   ########.fr       */
+/*   Updated: 2026/02/24 16:10:11 by bastalze         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H
@@ -41,7 +41,7 @@ int		assemble_stack(char **argv, t_stack *a);
 char	**ft_split(char const *s, char c);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	**ft_free(char **a, int j);
-int		ft_atoi(const char *nptr);
+long	ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 int		is_valid(char *str);
 void	push(t_stack *one, t_stack *two);
