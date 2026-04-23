@@ -32,9 +32,10 @@ In case of something going wrong (mallocation fail or wrong input etc) the progr
 - https://en.wikipedia.org/wiki/Algorithm
 - https://en.wikipedia.org/wiki/Time_complexity
 - https://m4nnb3ll.medium.com/my-journey-to-find-a-good-sorting-algorithm-for-the-push-swap-42-project-4a18bc38b474
-- https://m4nnb3ll.medium.com/my-journey-to-find-a-good-sorting-algorithm-for-the-push-swap-42-project-4a18bc38b474
+- https://pure-forest.medium.com/push-swap-turk-algorithm-explained-in-6-steps-4c6650a458c0
 - https://www.pythonmorsels.com/standard-error/
 - https://en.wikipedia.org/wiki/Signed_zero
+- https://push-swap42-visualizer.vercel.app/
 
 ### Peers
 Kian as always answered all my questions, gave me advice on the startegy to tackle this project and helped me with debugging. Nils started at the same time so he helped me keep a good pace and was a great person to bounce of iideas of or share encountered pitfalls and tricks we found out on the way. Answers were also given by Anton and Monika.
